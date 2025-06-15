@@ -96,3 +96,53 @@ TEST_CASE("height")
     REQUIRE(root.left->height() == 2);
     REQUIRE(root.right->height() == 1);
 }
+
+
+TEST_CASE("balance")
+{
+    Element root;
+
+    std::vector<std::pair<int, bool>> keys = {
+        {55, true},
+        {16, false},
+        {12, true},
+        {19, false},
+        {38, true},
+        {42, false}
+    };
+
+    for (auto el : keys)
+    {
+        root.add(el.first, el.second);
+    }
+
+    REQUIRE(root.height() == 5);
+    REQUIRE(root.balance() == -4);   
+
+}
+
+TEST_CASE("rotate right")
+{
+    Element root;
+
+    std::vector<std::pair<int, bool>> keys = {
+        {55, true},
+        {16, false},
+        {12, true},
+    };
+
+    for (auto el : keys)
+    {
+        root.add(el.first, el.second);
+    }
+    REQUIRE(root.balance() == -2);
+
+    auto new_root = root.rotationLogic(); 
+    
+    root = *new_root;
+    
+    REQUIRE(root.key == 16);
+    REQUIRE(root.balance() == 0);
+
+
+}
