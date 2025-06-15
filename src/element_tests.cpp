@@ -91,7 +91,7 @@ TEST_CASE("height")
     REQUIRE(root.left->height() == 1);
     REQUIRE(root.right->height() == 1);
 
-    root.left->add(10, true);
+    root.add(10, true);
     REQUIRE(root.height() == 3);
     REQUIRE(root.left->height() == 2);
     REQUIRE(root.right->height() == 1);

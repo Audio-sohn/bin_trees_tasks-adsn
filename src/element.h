@@ -8,13 +8,19 @@ struct Element {
     // Der Wert, der dem Schlüssel zugeordnet ist.
     bool value;
 
+    // height
+
+    int height_value;
+
     // Das linke Kind dieses Knotens.
     Element* left;
     // Das rechte Kind dieses Knotens.
     Element* right;
 
+
+
     /// Konstruktor, erzeugt einen neuen leeren Baum.
-    Element() = default;
+    Element() : left(nullptr), right(nullptr), height_value(0) {};
 
     /// Prüft, ob der Knoten leer ist.
     /// Ein Knoten ist leer, wenn eines oder beide Kinder `nullptr` sind.
